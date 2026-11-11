@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I'm Sorry</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#fff5f7,#f7dce5);font-family:Arial,sans-serif;color:#513943}.card{width:min(100%,540px);padding:30px 24px;text-align:center;border:1px solid #edc1cf;border-radius:24px;background:#ffffffeb;box-shadow:0 16px 45px #81445a24}.eyebrow{color:#a34e6c;font-size:11px;letter-spacing:3px;font-weight:bold}h1{color:#a34e6c;font:48px Georgia,serif;margin:13px 0 8px}.intro{line-height:1.65;color:#765c66}.area{height:145px;display:grid;place-items:center;margin:20px 0 8px}.envelope{width:190px;height:116px;position:relative;border:0;border-radius:9px;background:#efa1b8;cursor:pointer;box-shadow:0 9px 22px #81445a28}.envelope:before{content:"";position:absolute;inset:0;border-radius:9px;background:linear-gradient(135deg,transparent 49%,#df829f 50%) left,linear-gradient(225deg,transparent 49%,#df829f 50%) right;background-size:50% 100%;background-repeat:no-repeat}.flap{position:absolute;top:0;left:0;width:0;height:0;z-index:2;border-left:95px solid transparent;border-right:95px solid transparent;border-top:65px solid #d87998;transform-origin:top;transition:transform .5s}.seal{position:absolute;z-index:3;left:calc(50% - 17px);top:46px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:white;background:#ae4c70;font-size:18px}.open .flap{transform:rotateX(180deg)}.letter{display:none;margin:16px auto 0;padding:23px 21px;max-width:440px;border-radius:15px;border:1px solid #f0d0da;background:#fff5f7;text-align:left;line-height:1.8}.letter.show{display:block}.letter h2{text-align:center;color:#a34e6c;font: bold 24px Georgia,serif;margin:0 0 15px}.letter p{margin:0 0 13px}.sign{text-align:right;margin-top:20px;color:#a34e6c}.action{border:0;border-radius:30px;padding:12px 22px;color:white;background:#a34e6c;font-weight:bold;cursor:pointer;margin-top:14px}.hint{color:#a1858e;font-size:12px;margin-top:17px}.heart{position:fixed;bottom:-25px;color:#cf7190;opacity:.45;pointer-events:none;animation:float 8s linear infinite}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="eyebrow">A NOTE I SHOULD HAVE SAID PROPERLY</div>
+<h1>I'm sorry</h1>
+<p class="intro">Tap the envelope. I wanted to say this in my own words.</p>
+<div class="area"><button class="envelope" id="envelope" aria-label="Open the letter" aria-expanded="false"><span class="flap"></span><span class="seal">♥</span></button></div>
+<section class="letter" id="letter" aria-live="polite">
+<h2>Hey,</h2>
+<p>I know you told me not to come near your college, but I still came because I wanted to see you. I know I shouldn't have done that after you clearly told me not to. I should have listened to you.</p>
+<p>I'm sorry for making you uncomfortable and for not respecting what you said. I was thinking about what I wanted and I didn't think properly about how you would feel. That's my mistake, and I'm not going to make excuses for it.</p>
+<p>I won't come there again or try to meet you unless you clearly say you're okay with it. You don't have to reply to this or forgive me now. I just wanted to say sorry and let you know that I understood what I did wrong.</p>
+<p>I'm really sorry. I'll respect your space from now on.</p>
+<div class="sign">— Idiot</div>
+</section>
+<button class="action" id="openBtn">Open my letter</button>
+<div class="hint">No pressure to reply. Just a sincere apology.</div>
+</main>
+<script>
+const e=document.getElementById('envelope'),l=document.getElementById('letter'),b=document.getElementById('openBtn');
+function toggle(){const s=!l.classList.contains('show');l.classList.toggle('show',s);e.classList.toggle('open',s);e.setAttribute('aria-expanded',String(s));b.textContent=s?'Close letter':'Open my letter'}
+e.addEventListener('click',toggle);b.addEventListener('click',toggle);
+for(let i=0;i<8;i++){const h=document.createElement('span');h.className='heart';h.textContent='♥';h.style.left=(8+Math.random()*84)+'vw';h.style.animationDelay=(Math.random()*7)+'s';h.style.fontSize=(12+Math.random()*14)+'px';document.body.appendChild(h)}
+</script>
+</body></html>
